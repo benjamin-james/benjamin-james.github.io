@@ -12,4 +12,8 @@
 * Hello, world!
 Hi
 
-[[file:https://github.com/benjamin-james/][My Github]]
+|--------+----------|
+| [[file:https://github.com/benjamin-james/][Github]] | [[file:https://www.linkedin.com/in/benjamin-james-558989124][LinkedIn]] |
+|--------+----------|
+
+[[file:https://benjamin-james.github.io/resume.html][My Resume]]
