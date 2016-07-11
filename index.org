@@ -8,6 +8,6 @@
 #+OPTIONS: html-postamble:nil
 #+EXPORT_SELECT_TAGS: noexport
 #+EXPORT_EXCLUDE_TAGS: noexport
-# #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="style.css" />
 * Hello, world!
 Hi
