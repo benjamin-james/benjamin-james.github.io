@@ -1,0 +1,69 @@
+# -*- Org -*-
+#+TITLE:     Benjamin James
+#+AUTHOR:    Benjamin James
+#+EMAIL:     benjames@mit.edu
+#+bibliography: ./cv.bib
+#+bind: org-cite-global-bibliography nil
+#+cite_export: csl apa-cv.csl
+# HTML/PDF niceties for long URLs in LaTeX:
+#+latex_header: \usepackage{xurl}
+#+latex_header: \usepackage[hyphens]{url}
+
+#+OPTIONS: title:nil
+#+BEGIN_EXPORT html
+<header class="hero">
+  <img src="assets/photo.jpg" alt="Headshot" class="avatar" width="72" height="72" loading="lazy" decoding="async">
+  <div>
+    <h1>Benjamin James</h1>
+    <p class="subtitle">Computational Biology</p>
+  </div>
+</header>
+#+END_EXPORT
+
+I am a graduate student at [[https://www.csail.mit.edu/][MIT CSAIL]] performing research in computational biology in [[https://compbio.mit.edu][Manolis Kellis's lab]],
+where I study computational genomics using techniques such as single-cell and spatial omics to understand the gene regulatory landscape of human disease.
+I am completing my Ph.D in [[https://eecs.mit.edu][EECS]] in the near future! You can find my cv [[file:benjamin_james_cv.pdf][here]]
+
+
+Previously, I completed my undergraduate studies at the University of Tulsa,
+where I wrote efficient methods for alignment-free k-mer based methods for sequence homology under [[https://www.tamuk.edu/engineering/departments/eecs/faculty-and-staff/Hani-Zakaria-Girgis.html][Hani Girgis]],
+and where I graduated with Bachelor of Science degrees in Computer Science and Mathematics.
+
+I am an NSF Graduate Research Fellow and a Frederick (1953) and Barbara Cronin Fellow. 
+
+** Quick Links
+- [[https://www.mit.edu/~benjames][MIT page]]
+- [[https://people.csail.mit.edu/benjames/][MIT CSAIL page]]
+- [[https://personal.broadinstitute.org/bjames/][Broad institute page]]
+- [[https://github.com/benjamin-james][GitHub]]               
+- [[https://scholar.google.com/citations?user=t0y3zRkAAAAJ&hl=en][Google Scholar]]
+- [[https://orcid.org/0000-0002-6228-055X][ORCID]]
+
+** Selected Publications
+#+BEGIN_SRC emacs-lisp :exports results :results none
+    (defun cv-bold-self (rendered-name name _)
+      "Make RENDERED-NAME bold when NAME is mine.
+      Leave RENDERED-NAME unchanged otherwise. Return RENDERED-NAME."
+      (let ((given (cdr (assq 'given name)))
+            (family (cdr (assq 'family name))))
+        (when (and (member given '("Benjamin T." "Benjamin" "Ben" "Benjamin T" "B." "Benjamin Thomas"))
+                   (member family '("James" "James*")))
+          (push '(font-weight . "bold") (car rendered-name)))
+  ;      (pp rendered-name)      
+        rendered-name))
+
+    (defun cv-add-dagger (rendered-name _name _)
+    "Replace a trailing * in the family name with a dagger (†)."
+    (let ((name-elem (cadr rendered-name))   ; the part that holds the family
+          (family (cdr (assq 'family _name))))
+      ;; 1.  Remove the trailing * if it is there.
+      ;; (when (and family (string-suffix-p "*" family))
+      ;;   (setq rendered-name (cons (car rendered-name) (cons '((delimiter . " ")) (cons (cadr rendered-name) '(((delimiter . " ") '(nil "†"))))))))
+      rendered-name))
+
+#+END_SRC
+#+bind: citeproc-name-postprocess-functions (cv-bold-self cv-add-dagger) 
+
+[cite/n:@boix_regulatory_2021;@james_meshclust_2018;@xiong_epigenomic_2023]
+#+print_bibliography: 
+

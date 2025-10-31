@@ -1,2 +1,15 @@
 * benjamin-james.github.io
 my personal webpage
+
+APA-CV style: https://www.zotero.org/styles/apa-cv
+
+** compile
+#+BEGIN_SRC bash
+  time emacs -Q --batch --load publish.el --funcall my/publish
+#+END_SRC
+** todo
+add keywords in bibtex for:
+- co-first authorship
+- corrections/errata: ELisp regex?
+
+  

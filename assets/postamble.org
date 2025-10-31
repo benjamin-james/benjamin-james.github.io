@@ -1,0 +1,7 @@
+#+OPTIONS: toc:nil num:nil title:nil
+#+MACRO: emacs-version (eval (concat "GNU Emacs " emacs-version))
+#+MACRO: org-version (eval (org-version))
+-----
+Last updated: {{{time(%Y-%m-%d)}}} · © Benjamin James · [[mailto:benjames@mit.edu][benjames@mit.edu]]
+
+Made with {{{emacs-version}}} · Org-mode {{{org-version}}} · [[https://watercss.kognise.dev/][water.css]]

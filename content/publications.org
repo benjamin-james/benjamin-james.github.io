@@ -1,0 +1,38 @@
+# -*- Org -*-
+#+TITLE:     Benjamin James
+#+AUTHOR:    Benjamin James
+#+EMAIL:     benjames@mit.edu
+
+#+options: toc:nil num:nil author:nil date:nil
+#+bibliography: ./cv.bib
+#+bind: org-cite-global-bibliography nil
+#+cite_export: csl apa-cv.csl
+# HTML/PDF niceties for long URLs in LaTeX:
+#+latex_header: \usepackage{xurl}
+#+latex_header: \usepackage[hyphens]{url}
+
+
+
+#+BEGIN_SRC emacs-lisp :exports results :results none
+    (defun cv-bold-self (rendered-name name _)
+    "Make RENDERED-NAME bold when NAME is mine.
+  Leave RENDERED-NAME unchanged otherwise. Return RENDERED-NAME."
+    (let ((given (cdr (assq 'given name)))
+          (family (cdr (assq 'family name))))
+      (when (and (member given '("Benjamin T." "Benjamin" "Ben" "Benjamin T" "B." "Benjamin Thomas"))
+  	       (member family '("James" "James*")))
+        (push '(font-weight . "bold") (car rendered-name)))
+      rendered-name))
+#+END_SRC
+#+bind: citeproc-name-postprocess-functions (cv-bold-self)
+
+[cite/n:@*]
+
+# TODO add keywords to bibtex for (A) co-first authorship, (B) corrections/errata (C) preprint
+* Publications
+** Journal articles
+#+print_bibliography: :type article
+** Preprints
+#+print_bibliography: :type misc
+** Theses
+#+print_bibliography: :type mastersthesis phdthesis

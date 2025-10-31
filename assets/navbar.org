@@ -1,0 +1,4 @@
+#+OPTIONS: toc:nil num:nil title:nil
+# * [[./index.html][Home]] · [[./publications.html][Publications]] · [[./cv.html][CV]] · [[./contact.html][Contact]] · [[./notes.html][Notes]]
+* [[./index.html][Home]] · [[./publications.html][Publications]] · [[./contact.html][Contact]] · [[./notes.html][Notes]]
+-----
