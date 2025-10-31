@@ -1,6 +1,3 @@
-## Ignore HTML outside of docs/
-!docs/*.html
-*.html
 
 ## Ignore PDF except for cv
 !docs/benjamin_james_cv.pdf

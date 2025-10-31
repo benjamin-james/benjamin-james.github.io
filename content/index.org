@@ -22,7 +22,7 @@
 
 I am a graduate student at [[https://www.csail.mit.edu/][MIT CSAIL]] performing research in computational biology in [[https://compbio.mit.edu][Manolis Kellis's lab]],
 where I study computational genomics using techniques such as single-cell and spatial omics to understand the gene regulatory landscape of human disease.
-I am completing my Ph.D in [[https://eecs.mit.edu][EECS]] in the near future! You can find my cv [[file:benjamin_james_cv.pdf][here]]
+I am completing my Ph.D in [[https://www.eecs.mit.edu][EECS]] in the near future! You can find my cv [[./assets/benjamin_james_cv.pdf][here]]
 
 
 Previously, I completed my undergraduate studies at the University of Tulsa,
