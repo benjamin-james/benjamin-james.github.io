@@ -63,30 +63,29 @@
       org-export-with-author t
       org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
 
-(defvar my/canonical "https://benjamin-james.github.io")
-
-(defvar my/person
-  '((@id . (concat my/canonical "/#profile"))
-    (@type . "Person")
-    (name . "Benjamin James")
-    (url  . my/canonical)
-    (image . (concat my/canonical "/assets/photo.jpg"))
-    (email . "mailto:benjames@mit.edu")
-    (affiliation . ((@type . "Organization") (name . "MIT")))
-    (sameAs . ["https://www.mit.edu/~benjames"
-	       "https://people.csail.mit.edu/benjames"
-	       "https://personal.broadinstitute.org/bjames/"
-	       "https://github.com/benjamin-james"
-	       "https://scholar.google.com/citations?user=t0y3zRkAAAAJ"
-               "https://orcid.org/0000-0002-6228-055X"])))
+(defun my/person (canonical)
+`((@id . ,(concat canonical "/#profile"))
+      (@type . "Person")
+      (name . "Benjamin James")
+      (url  . ,canonical)
+      (image . ,(concat canonical "/assets/photo.jpg"))
+      (email . "mailto:benjames@mit.edu")
+      (affiliation . ((@type . "Organization") (name . "MIT")))
+      (sameAs . ["https://www.mit.edu/~benjames"
+		 "https://people.csail.mit.edu/benjames"
+		 "https://personal.broadinstitute.org/bjames/"
+		 "https://github.com/benjamin-james"
+		 "https://scholar.google.com/citations?user=t0y3zRkAAAAJ"
+		 "https://orcid.org/0000-0002-6228-055X"])))
 
 (defun my/jsonld-script (obj)
   (let ((json-encoding-pretty-print t))
     (format "<script type=\"application/ld+json\">%s</script>"
             (json-encode `((@context . "https://schema.org") ,@obj)))))
 
+(defconst my/canonical "https://benjamin-james.github.io")
 (defconst my/person-head
-  (my/jsonld-script `((@graph . [,@(list my/person)]))))
+  (my/jsonld-script `((@graph . [,@(list (my/person my/canonical))]))))
 
 (defun slurp (path)
   (with-temp-buffer (insert-file-contents path) (buffer-string)))
@@ -107,8 +106,9 @@
 (defconst my/html-head
   (concat
    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
-   "<link rel=\"stylesheet\" href=\"/assets/water.css\">\n"
-   "<link rel=\"stylesheet\" href=\"/assets/overrides.css\">\n"
+   "<link rel=\"canonical\" href=\"" my/canonical "\"\\>\n"
+   "<link rel=\"stylesheet\" href=\"./assets/water.css\">\n"
+   "<link rel=\"stylesheet\" href=\"./assets/overrides.css\">\n"
    my/person-head))
 
 ;; latex
