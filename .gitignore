@@ -1,9 +1,9 @@
-## Ignore HTML outside of public_html 
-!public_html/*.html
+## Ignore HTML outside of docs/
+!docs/*.html
 *.html
 
 ## Ignore PDF except for cv
-!public_html/benjamin_james_cv.pdf
+!docs/benjamin_james_cv.pdf
 *.pdf
 
 ## Core latex/pdflatex auxiliary files:
@@ -296,7 +296,6 @@ TSWLatexianTemp*
 
 # auto folder when using emacs and auctex
 ./auto/*
-*.el
 
 # expex forward references with \gathertags
 *-tags.tex
