@@ -63,13 +63,14 @@
       org-export-with-author t
       org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
 
+(defvar my/canonical "https://benjamin-james.github.io")
 
 (defvar my/person
-  '((@id . "https://benjamin-james.github.io/#profile")
+  '((@id . (concat my/canonical "/#profile"))
     (@type . "Person")
     (name . "Benjamin James")
-    (url  . "https://benjamin-james.github.io/")
-    (image . "https://benjamin-james.github.io/assets/photo.jpg")
+    (url  . my/canonical)
+    (image . (concat my/canonical "/assets/photo.jpg"))
     (email . "mailto:benjames@mit.edu")
     (affiliation . ((@type . "Organization") (name . "MIT")))
     (sameAs . ["https://www.mit.edu/~benjames"
