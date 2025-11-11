@@ -83,7 +83,7 @@
     (format "<script type=\"application/ld+json\">%s</script>"
             (json-encode `((@context . "https://schema.org") ,@obj)))))
 
-(defconst my/canonical "https://benjamin-james.github.io")
+(defconst my/canonical "https://www.mit.edu/~benjames")
 (defconst my/person-head
   (my/jsonld-script `((@graph . [,@(list (my/person my/canonical))]))))
 
@@ -106,9 +106,9 @@
 (defconst my/html-head
   (concat
    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
-   "<link rel=\"canonical\" href=\"" my/canonical "\"\\>\n"
-   "<link rel=\"stylesheet\" href=\"./assets/water.css\">\n"
-   "<link rel=\"stylesheet\" href=\"./assets/overrides.css\">\n"
+   "<link rel=\"canonical\" href=\"" my/canonical "\"/>\n"
+   "<link rel=\"stylesheet\" href=\"" my/canonical "/assets/water.css\">\n"
+   "<link rel=\"stylesheet\" href=\"" my/canonical "/assets/overrides.css\">\n"
    my/person-head))
 
 ;; latex
