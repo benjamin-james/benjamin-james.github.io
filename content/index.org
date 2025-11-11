@@ -2,7 +2,7 @@
 #+TITLE:     Benjamin James
 #+AUTHOR:    Benjamin James
 #+EMAIL:     benjames@mit.edu
-#+bibliography: ./cv.bib
+#+bibliography: ./benjamin_james_cv.bib
 #+bind: org-cite-global-bibliography nil
 #+cite_export: csl apa-cv.csl
 # HTML/PDF niceties for long URLs in LaTeX:
