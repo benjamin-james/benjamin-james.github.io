@@ -64,19 +64,31 @@
       org-format-latex-options (plist-put org-format-latex-options :scale 1.3))
 
 (defun my/person (canonical)
-`((@id . ,(concat canonical "/#profile"))
-      (@type . "Person")
-      (name . "Benjamin James")
-      (url  . ,canonical)
-      (image . ,(concat canonical "/assets/photo.jpg"))
-      (email . "mailto:benjames@mit.edu")
-      (affiliation . ((@type . "Organization") (name . "MIT")))
-      (sameAs . ["https://www.mit.edu/~benjames"
-		 "https://people.csail.mit.edu/benjames"
-		 "https://personal.broadinstitute.org/bjames/"
-		 "https://github.com/benjamin-james"
-		 "https://scholar.google.com/citations?user=t0y3zRkAAAAJ"
-		 "https://orcid.org/0000-0002-6228-055X"])))
+  `((@id . ,(concat canonical "/#profile"))
+    (@type . "Person")
+    (name . "Benjamin James")
+    (url  . ,canonical)
+    (image . ,(concat canonical "/assets/photo.jpg"))
+    (email . "mailto:benjames@mit.edu")
+    (jobTitle "Ph.D candidate")
+    (knowsAbout . ["Computational biology"
+                   "Single-cell genomics"
+                   "Spatial transcriptomics"
+                   "Gene regulation"
+                   "Computational genomics"])
+    (affiliation . ((@type . "CollegeOrUniversity")
+                    (name . "MIT")
+                    (sameAs . "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology")))
+    (memberOf . ((@type "ResearchOrganization")
+                 (name . "MIT CSAIL")
+                 (url . "https://www.csail.mit.edu")
+                 (sameAs . "https://en.wikipedia.org/wiki/MIT_Computer_Science_and_Artificial_Intelligence_Laboratory")))
+    (sameAs . ["https://www.mit.edu/~benjames"
+	       "https://people.csail.mit.edu/benjames"
+	       "https://personal.broadinstitute.org/bjames/"
+	       "https://github.com/benjamin-james"
+	       "https://scholar.google.com/citations?user=t0y3zRkAAAAJ"
+	       "https://orcid.org/0000-0002-6228-055X"])))
 
 (defun my/jsonld-script (obj)
   (let ((json-encoding-pretty-print t))

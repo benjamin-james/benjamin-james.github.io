@@ -12,7 +12,7 @@
 #+OPTIONS: title:nil
 #+BEGIN_EXPORT html
 <header class="hero">
-  <img src="assets/photo.jpg" alt="Headshot" class="avatar" width="72" height="72" loading="lazy" decoding="async">
+  <img src="assets/photo-thumb.jpg" alt="Headshot" class="avatar" width="72" height="72" loading="eager" decoding="async">
   <div>
     <h1>Benjamin James</h1>
     <p class="subtitle">Computational Biology</p>
