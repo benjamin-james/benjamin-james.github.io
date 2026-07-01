@@ -1,0 +1,53 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: purcell/setup-emacs@v6
+        with:
+          version: 30.1
+
+      - name: Cache ELPA packages
+        uses: actions/cache@v4
+        with:
+          path: .emacs.cache.d/elpa
+          key: elpa-${{ runner.os }}-${{ hashFiles('publish.el') }}
+          restore-keys: |
+            elpa-${{ runner.os }}-
+
+      - name: Build site
+        env:
+          SITE_CANONICAL: https://benjamin-james.github.io
+        run: emacs -Q --batch --load publish.el --funcall my/publish
+
+      - name: Deploy to gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Keep GitHub Pages from running Jekyll (it would drop _-prefixed files).
+          touch docs/.nojekyll
+          # Commit the master tree plus the freshly built docs/ and force-push
+          # to gh-pages, replicating the existing gh-pages layout.
+          git add -A
+          git commit -m "Deploy site generated from ${GITHUB_SHA}" --allow-empty
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:gh-pages --force
