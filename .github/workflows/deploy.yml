@@ -20,7 +20,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: purcell/setup-emacs@v6
+      - uses: purcell/setup-emacs@master
         with:
           version: 30.1
 
