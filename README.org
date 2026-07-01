@@ -7,6 +7,20 @@ APA-CV style: https://www.zotero.org/styles/apa-cv
 #+BEGIN_SRC bash
   time emacs -Q --batch --load publish.el --funcall my/publish
 #+END_SRC
+
+The CV PDF (~cv-pdf~ project) requires a TeX installation with
+~latexmk~ and ~xelatex~ on ~PATH~. Without it the HTML site and
+assets still publish, but the build aborts at the PDF step.
+
+The site canonical (<link rel=canonical> and JSON-LD identity)
+defaults to ~https://www.mit.edu/~benjames~ and is overridable per
+deployment via the ~SITE_CANONICAL~ environment variable, e.g. for
+GitHub Pages:
+
+#+BEGIN_SRC bash
+  SITE_CANONICAL="https://benjamin-james.github.io" \
+    emacs -Q --batch --load publish.el --funcall my/publish
+#+END_SRC
 ** todo
 add keywords in bibtex for:
 - co-first authorship

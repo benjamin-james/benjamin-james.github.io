@@ -83,7 +83,8 @@
     (format "<script type=\"application/ld+json\">%s</script>"
             (json-encode `((@context . "https://schema.org") ,@obj)))))
 
-(defconst my/canonical "https://www.mit.edu/~benjames")
+(defconst my/canonical
+  (or (getenv "SITE_CANONICAL") "https://www.mit.edu/~benjames"))
 (defconst my/person-head
   (my/jsonld-script `((@graph . [,@(list (my/person my/canonical))]))))
 
@@ -131,12 +132,6 @@
          :html-head ,my/html-head
          :html-preamble ,my/html-preamble       
          :html-postamble ,my/html-postamble)
-	("cv-pdf"
-	 :base-directory "content"
-	 :include "cv.org"
-	 :publishing-directory "docs/assets"
-         :publishing-function org-latex-publish-to-pdf
-         :time-stamp-file nil)
         ("assets"
          :base-directory "assets"
          :base-extension "css\\|png\\|jpg\\|svg\\|pdf\\|woff\\|woff2\\|txt\\|ico"

@@ -1,10 +1,11 @@
 
-## Ignore PDF except for cv
-!docs/benjamin_james_cv.pdf
+## Ignore PDFs except the CV/resume we ship (built externally from LaTeX)
 *.pdf
+!benjamin_james_cv.pdf
+!benjamin_james_resume.pdf
 
 ## Core latex/pdflatex auxiliary files:
-*.tex ### ignore intermediate .tex
+*.tex
 *.aux
 *.lof
 *.log
