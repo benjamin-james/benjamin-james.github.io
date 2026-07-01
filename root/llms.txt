@@ -1,0 +1,36 @@
+# Benjamin James
+
+> Benjamin James is a PhD candidate in computational biology at MIT CSAIL (Manolis Kellis's lab) studying the gene regulatory landscape of human disease using single-cell and spatial omics. He is an NSF Graduate Research Fellow and a Frederick (1953) and Barbara Cronin Fellow.
+
+## Identity
+
+- **Name:** Benjamin James
+- **Role:** PhD candidate, Computational Biology
+- **Affiliation:** MIT CSAIL, Department of Electrical Engineering and Computer Science (EECS)
+- **Email:** benjames@mit.edu
+
+## Research
+
+Benjamin studies computational genomics, with a focus on single-cell and spatial omics techniques to understand gene regulatory mechanisms underlying human disease. He previously developed efficient alignment-free k-mer based methods for sequence homology as an undergraduate at the University of Tulsa under Hani Girgis, graduating with B.S. degrees in Computer Science and Mathematics.
+
+## Selected Publications
+
+- Boix, C.A., **James, B.T.**, Park, Y.P., Meuleman, W., & Kellis, M. (2021). *Regulatory genomic circuitry of human disease loci by integrative epigenomics.*
+- **James, B.T.**, Luczak, B.B., & Girgis, H.Z. (2018). *MeShClust: an intelligent tool for clustering DNA sequences.*
+- Xiong*, X., **James\***, B.T., Boix*, C.A., et al. (2023). *Epigenomic dissection of Alzheimer's disease pinpoints causal variants and reveals epigenome erosion.* (* co-first author)
+
+Full publications list: see publications.html
+
+## Documents
+
+- Resume: assets/benjamin_james_resume.pdf
+- CV: assets/benjamin_james_cv.pdf
+
+## Links
+
+- MIT homepage: https://www.mit.edu/~benjames
+- MIT CSAIL page: https://people.csail.mit.edu/benjames/
+- Broad Institute page: https://personal.broadinstitute.org/bjames/
+- GitHub: https://github.com/benjamin-james
+- Google Scholar: https://scholar.google.com/citations?user=t0y3zRkAAAAJ
+- ORCID: https://orcid.org/0000-0002-6228-055X

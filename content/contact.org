@@ -1,5 +1,5 @@
 # -*- Org -*-
-#+TITLE:     Benjamin James
+#+TITLE: Contact — Benjamin James
 #+AUTHOR:    Benjamin James
 #+EMAIL:     benjames@mit.edu
 

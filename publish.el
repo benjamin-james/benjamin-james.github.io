@@ -70,7 +70,7 @@
     (url  . ,canonical)
     (image . ,(concat canonical "/assets/photo.jpg"))
     (email . "mailto:benjames@mit.edu")
-    (jobTitle "Ph.D candidate")
+    (jobTitle . "Ph.D candidate")
     (knowsAbout . ["Computational biology"
                    "Single-cell genomics"
                    "Spatial transcriptomics"
@@ -79,7 +79,7 @@
     (affiliation . ((@type . "CollegeOrUniversity")
                     (name . "MIT")
                     (sameAs . "https://en.wikipedia.org/wiki/Massachusetts_Institute_of_Technology")))
-    (memberOf . ((@type "ResearchOrganization")
+    (memberOf . ((@type . "ResearchOrganization")
                  (name . "MIT CSAIL")
                  (url . "https://www.csail.mit.edu")
                  (sameAs . "https://en.wikipedia.org/wiki/MIT_Computer_Science_and_Artificial_Intelligence_Laboratory")))
@@ -103,6 +103,46 @@
 (defun slurp (path)
   (with-temp-buffer (insert-file-contents path) (buffer-string)))
 
+(defun my/derive-description (info)
+  "Derive a ~155-char meta description from the first text paragraph.
+Uses #+DESCRIPTION when set; otherwise extracts plain text from the
+parse tree's first paragraph by rendering to HTML then stripping tags.
+Falls back to the page title when no paragraph text is found."
+  (or (plist-get info :description)
+      (let ((tree (plist-get info :parse-tree))
+            (found nil))
+        (org-element-map tree 'paragraph
+          (lambda (p)
+            (unless found
+              (let* ((html (org-export-data p info))
+                     (text (replace-regexp-in-string "<[^>]+>" "" html))
+                     (text (replace-regexp-in-string "&amp;" "&" text))
+                     (text (replace-regexp-in-string "&lt;" "<" text))
+                     (text (replace-regexp-in-string "&gt;" ">" text))
+                     (text (org-trim
+                             (replace-regexp-in-string "\\s-+" " " text))))
+                (when (org-string-nw-p text)
+                  (setq found
+                        (if (> (length text) 155)
+                            (concat (substring text 0 152) "…")
+                          text)))))))
+        (or found
+            (let ((title (org-export-data (plist-get info :title) info)))
+              (when (org-string-nw-p title)
+                (if (> (length title) 155)
+                    (concat (substring title 0 152) "…")
+                  title)))))))
+
+(defun my/html-meta-tags (info)
+  "Emit standard Org meta tags plus an auto-derived description."
+  (let ((default (org-html-meta-tags-default info))
+        (desc (my/derive-description info)))
+    (if (and desc (not (plist-get info :description)))
+        (append default (list (list "name" "description" desc)))
+      default)))
+
+(setq org-html-meta-tags #'my/html-meta-tags)
+
 
 (defun my/org-file->html-fragment (path)
   "Return body-only HTML for the Org file at PATH, or empty string if missing."
@@ -116,12 +156,26 @@
 (defvar my/html-preamble  (my/org-file->html-fragment "assets/navbar.org"))
 (defvar my/html-postamble (my/org-file->html-fragment "assets/postamble.org"))
 
+(defconst my/og-description
+  "PhD candidate in computational biology at MIT CSAIL studying the gene regulatory landscape of human disease using single-cell and spatial omics.")
+
 (defconst my/html-head
   (concat
    "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n"
    "<link rel=\"canonical\" href=\"" my/canonical "\"/>\n"
+   "<link rel=\"icon\" href=\"assets/photo-thumb.jpg\">\n"
    "<link rel=\"stylesheet\" href=\"" my/canonical "/assets/water.css\">\n"
    "<link rel=\"stylesheet\" href=\"" my/canonical "/assets/overrides.css\">\n"
+   "<meta property=\"og:type\" content=\"profile\">\n"
+   "<meta property=\"og:site_name\" content=\"Benjamin James\">\n"
+   "<meta property=\"og:title\" content=\"Benjamin James — Computational Biology, MIT CSAIL\">\n"
+   "<meta property=\"og:description\" content=\"" my/og-description "\">\n"
+   "<meta property=\"og:url\" content=\"" my/canonical "\">\n"
+   "<meta property=\"og:image\" content=\"" my/canonical "/assets/photo.jpg\">\n"
+   "<meta name=\"twitter:card\" content=\"summary_large_image\">\n"
+   "<meta name=\"twitter:title\" content=\"Benjamin James — Computational Biology, MIT CSAIL\">\n"
+   "<meta name=\"twitter:description\" content=\"" my/og-description "\">\n"
+   "<meta name=\"twitter:image\" content=\"" my/canonical "/assets/photo.jpg\">\n"
    my/person-head))
 
 ;; latex
@@ -150,9 +204,56 @@
 	 :recursive t
          :publishing-directory "docs/assets"
          :publishing-function org-publish-attachment)
-        ("site-all" :components ("site" "assets"))))
+        ("root-files"
+         :base-directory "root"
+         :base-extension "txt"
+         :recursive nil
+         :publishing-directory "docs"
+         :publishing-function org-publish-attachment)
+        ("site-all" :components ("site" "assets" "root-files"))))
 
-(defun my/publish () (interactive) (org-publish "site-all" t))
+(defun my/generate-sitemap ()
+  "Write docs/sitemap.xml listing every docs/*.html with the canonical base."
+  (let* ((base (replace-regexp-in-string "/+$" "" my/canonical))
+         (pages (directory-files "docs" t "^index\\.html$"))
+         (pages (append pages
+                        (cl-remove-if
+                         (lambda (f) (string-match "^index\\.html$" (file-name-nondirectory f)))
+                         (directory-files "docs" t "\\.html$"))))
+         (entries
+          (mapconcat
+           (lambda (f)
+             (let* ((name (file-name-nondirectory f))
+                    (loc (concat base "/" name))
+                    (mtime (format-time-string "%Y-%m-%d"
+                             (nth 5 (file-attributes f)))))
+               (format "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>"
+                       loc mtime)))
+           pages "\n")))
+    (with-temp-file "docs/sitemap.xml"
+      (insert "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n")
+      (insert "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n")
+      (insert entries "\n")
+      (insert "</urlset>\n"))))
+
+(defun my/generate-robots ()
+  "Write docs/robots.txt allowing all bots and pointing at the sitemap."
+  (let ((base (replace-regexp-in-string "/+$" "" my/canonical)))
+    (with-temp-file "docs/robots.txt"
+      (insert "User-agent: *\nAllow: /\n\n")
+      (insert "# Explicitly welcome AI/LLM crawlers\n")
+      (insert "User-agent: GPTBot\nAllow: /\n")
+      (insert "User-agent: ClaudeBot\nAllow: /\n")
+      (insert "User-agent: PerplexityBot\nAllow: /\n")
+      (insert "User-agent: Google-Extended\nAllow: /\n")
+      (insert "User-agent: CCBot\nAllow: /\n\n")
+      (insert (format "Sitemap: %s/sitemap.xml\n" base)))))
+
+(defun my/publish ()
+  (interactive)
+  (org-publish "site-all" t)
+  (my/generate-sitemap)
+  (my/generate-robots))
 (defun my/clean   () (interactive) (delete-directory "docs" t))
 
 (provide 'publish)

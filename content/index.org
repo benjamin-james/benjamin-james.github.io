@@ -1,5 +1,5 @@
 # -*- Org -*-
-#+TITLE:     Benjamin James
+#+TITLE: Benjamin James — Computational Biology, MIT CSAIL
 #+AUTHOR:    Benjamin James
 #+EMAIL:     benjames@mit.edu
 #+bibliography: ./benjamin_james_cv.bib
