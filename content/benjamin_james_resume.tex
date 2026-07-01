@@ -1,0 +1,469 @@
+%
+%Academic CV LaTeX Template
+% Author: Dubasi Pavan Kumar
+% LinkedIn: https://www.linkedin.com/in/im-pavankumar/
+% License: MIT
+%
+% For errors, suggestions, or improvements, please contact:
+% Email: pavankumard.pg19.ma@nitp.ac.in
+%
+
+
+
+\documentclass[a4paper,11pt]{article}
+
+% Package imports
+\usepackage{latexsym}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{ragged2e}
+\usepackage[empty]{fullpage}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage{geometry}
+\usepackage{marvosym}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{DejaVuSerif}
+\usepackage{DejaVuSans}
+\usepackage{DejaVuSansMono}
+%\usepackage{cfr-lm}
+\usepackage[T1]{fontenc}
+\usepackage{fontawesome5}
+
+% Color definitions
+\definecolor{darkblue}{RGB}{0,0,139}
+
+% Page layout
+\setlength{\multicolsep}{0pt} 
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\geometry{left=1.4cm, top=0.8cm, right=1.2cm, bottom=1cm}
+\setlength{\footskip}{5pt} % Addressing fancyhdr warning
+
+% Hyperlink setup (moved after fancyhdr to address warning)
+\usepackage{xurl}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=darkblue,
+    urlcolor=darkblue,
+}
+
+% Custom box settings
+\usepackage[most]{tcolorbox}
+\tcbset{
+    frame code={},
+    center title,
+    left=0pt,
+    right=0pt,
+    top=0pt,
+    bottom=0pt,
+    colback=gray!20,
+    colframe=white,
+    width=\dimexpr\textwidth\relax,
+    enlarge left by=-2mm,
+    boxsep=4pt,
+    arc=0pt,outer arc=0pt,
+}
+
+% URL style
+\urlstyle{tt}
+\makeatletter
+\let\HREF\href
+\renewcommand{\href}[2]{\HREF{#1}{\begingroup\UrlFont #2\endgroup}}
+\makeatother
+% Text alignment
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-7pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item{
+    \textbf{#1}{\hspace{0.5mm}#2 \vspace{-0.5mm}}
+  }
+}
+
+\newcommand{\resumePOR}[3]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1}\hspace{0.3mm}#2 & \textit{\small{#3}} 
+    \end{tabular*}
+    \vspace{-2mm}
+}
+
+\newcommand{\resumeSubheading}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#4}} \\
+        \textit{\footnotesize{#3}} &  \footnotesize{#2}\\
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeProject}[4]{
+\vspace{0.5mm}\item
+    \begin{tabular*}{0.98\textwidth}[t]{l@{\extracolsep{\fill}}r}
+        \textbf{#1} & \textit{\footnotesize{#3}} \\
+        \footnotesize{\textit{#2}} & \footnotesize{#4}
+    \end{tabular*}
+    \vspace{-2.4mm}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\circ$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm]}
+\newcommand{\resumeHeadingSkillStart}{\begin{itemize}[leftmargin=*,itemsep=1.7mm, rightmargin=2ex]}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*,labelsep=1mm,itemsep=0.5mm]}
+
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}\vspace{2mm}}
+\newcommand{\resumeHeadingSkillEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2mm}}
+\newcommand{\cvsection}[1]{%
+\vspace{2mm}
+\begin{tcolorbox}
+    \textbf{\large #1}
+\end{tcolorbox}
+    \vspace{-4mm}
+}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}%
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}%
+\newcolumntype{C}{>{\centering\arraybackslash}X}%
+
+% Commands for icon sizing and positioning
+\newcommand{\socialicon}[1]{\raisebox{-0.05em}{\resizebox{!}{1em}{#1}}}
+\newcommand{\ieeeicon}[1]{\raisebox{-0.3em}{\resizebox{!}{1.3em}{#1}}}
+
+\begin{document}
+
+% Header
+\begin{center}
+	{\large\textbf{Benjamin T. James}}
+\end{center}
+\vspace{-6mm}
+
+\begin{center}
+	\small{
+		\socialicon{\faPhone} (314)-703-5233 | \socialicon{\faEnvelope} \href{mailto:benjames@mit.edu}{benjames@mit.edu} |
+		\socialicon{\faUser} \url{https://www.mit.edu/~benjames/}
+	}
+\end{center}
+\vspace{-6mm}
+\begin{center}
+	\small{
+		\socialicon{\faBookReader} \href{https://scholar.google.com/citations?user=t0y3zRkAAAAJ}{Google Scholar}
+		\socialicon{\faGithub} \href{https://github.com/benjamin-james}{benjamin-james} |
+		\socialicon{\faTwitter} \href{https://twitter.com/\_\_ben\_james\_\_}{@\_\_ben\_james\_\_}
+	}
+\end{center}
+
+\vspace{-4mm}
+
+%% \section{\textbf{Overview}}
+%% \vspace{1mm}
+%% \small{
+%%   Ph.D student seeking a challenging position to leverage my expertise in computational genomics.
+%%   Aiming to contribute to innovative projects at the intersection of AI and practical problem-solving in fields such as [specific areas of interest].
+%% }
+%% \vspace{-2mm}
+
+
+
+%% \section{\textbf{Experience}}
+%% \vspace{-0.4mm}
+%%   \resumeSubHeadingListStart
+%%   \resumeSubheading
+%%       {{Company A [\href{https://www.companya.com}{\faIcon{globe}}]}}{City, Country}
+%%       {Job Title A}{Month Year - Month Year}
+%%       \resumeItemListStart
+%%         \item Developed [specific achievement] achieving [specific metric] in [specific area]
+%%         \item Implemented [technology/method], enhancing [specific aspect] by [specific percentage]
+%%         \item Conducted analysis on [specific data], identifying [key findings]
+%%         \item Presented findings at [specific event], receiving [specific recognition]
+%%       \resumeItemListEnd 
+%%   \resumeSubheading
+%%     {Company B [\href{https://www.companyb.com}{\faIcon{globe}}]}{Remote}
+%%     {Job Title B}{Month Year - Month Year}
+%%     \resumeItemListStart
+%%       \item Engineered a [specific system/model], improving [specific metric] by [percentage]
+%%       \item Developed [specific tool/method], increasing [specific aspect] by [percentage]
+%%       \item Implemented [specific system], reducing [specific metric] by [percentage]
+%%       \item Conducted [specific test/analysis] to validate [specific aspect]
+%%     \resumeItemListEnd
+%%   \resumeSubHeadingListEnd
+%% \vspace{-6mm}
+
+\section{\textbf{Education}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Massachusetts Institute of Technology}{Cambridge, Massachusetts}
+{Ph.D in Electrical Engineering and Computer Science, minor in Econometrics}{September 2019 -- August 2026}
+\resumeItemListStart
+\item GPA: 4.80/5.00
+\resumeItemListEnd
+
+\resumeSubheading
+{University of Tulsa}{Tulsa, Oklahoma}
+{BSc in Mathematics, BSc in Computer Science}{Aug 2015 -- May 2019}
+\resumeItemListStart
+\item GPA: 3.747/4.000
+\resumeItemListEnd
+
+%% \resumeSubheading
+%% {}{City, Country}
+%% {Pre-University Education}{Month Year}
+%% \resumeItemListStart
+%% \item Grade: XX.X\%
+%% \resumeItemListEnd
+
+%% \resumeSubheading
+%% {High School Name}{City, Country}
+%% {Secondary Education}{Month Year}
+%% \resumeItemListStart
+%% \item GPA: X.X/10
+%% \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-6mm}
+
+\section{\textbf{Selected Research} \small{Includes two (co-) first author \textbf{Cell} papers, one second-author \textbf{Nature} paper}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{Single-cell dissection of the human brain}
+{Tools: R, Python, Bash, C++}
+{2021 - 2026}
+{{}[\href{https://github.com/kellislab/}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+\item Integrated high-dimensional, multimodal (scRNA-seq/scATAC-seq) data from \textbf{hundreds of postmortem human brains} and mouse brains from corresponding model systems
+\item Analyzed these data across several \textbf{human disease contexts} and brain regions using \textbf{functional genomics}, careful integration/atlasing, and case-control causal inference to infer disease pathology.  %\textcolor{red}{TODO highlight keywords}
+\item Created new methods to make inferences on new technologies (e.g. spatial transcriptomics) and gene module discovery, mostly using random matrix theory and high-dimensional statistics
+\item Connected millions of DNA elements active across human tissues to their target genes
+
+\item \tiny{Linville*, R. M., \textbf{James*, B. T.}, Galani, K., Ho, L., Shin, J., Oliver, E., Bock, R., Murray, E. M., Louca, M., Oke, O., Wang, C., Engelberg-Cook, E., DeTure, M., Farrell, V., Fitzwalter, B., Pineda, S., Sathitloetsakun, S., Liang, X., Madras, B., and Dickson, D. W., Mash, D. C., Turecki, G., Wheeler, V. C., Alvarez, V. A., Gabuzda, D., Kellis, M., Heiman, M. (2025). Cross-species single cell atlas of the striatum defines cell type and subregion disease vulnerabilities. \textbf{Cell}}.
+\item \tiny{Xiong*, X., \textbf{James*, B. T.}, Boix*, C. A., Park, Y. P., Galani, K., Victor, M. B., Sun, N., Hou, L., Ho, L.-L., Mantero, J., Scannail, A. N., Dileep, V., Dong, W., Mathys, H., Bennett, D. A., Tsai, L.-H., \& Kellis, M. (2023). Epigenomic dissection of Alzheimer’s disease pinpoints causal variants and reveals epigenome erosion. \textit{Cell}, \textit{186}(20), 4422–4437.e21. \url{https://doi.org/10.1016/j.cell.2023.08.040}}
+\item \tiny{Boix, C. A., \textbf{James, B. T.}, Park, Y. P., Meuleman, W., \& Kellis, M. (2021). Regulatory genomic circuitry of human disease loci by integrative epigenomics. \textit{Nature}, \textit{590}(7845), 300–307. \url{https://doi.org/10.1038/s41586-020-03145-z}}
+\resumeItemListEnd
+
+%% \resumeProject
+%% {Scalable, spatially-informed clustering for spatial transcriptomics}
+%% {Tools: Python, ARPACK (scipy)}
+%% {2025-2026}
+%% {{}[\href{https://github.com/kellislab/banksy-hd}{\textcolor{darkblue}{\faGithub}}]}
+%% \resumeItemListStart
+%% \item Adaptation of the \href{https://doi.org/10.1038/s41588-024-01664-3}{BANKSY algorithm} for high dimensional transcriptomics
+%% \item Newer spatial transcriptomics assays like 10x Genomics Visium HD contain millions of spots per experiment that are not amenable to these methods
+%% \item Tech specific adaptations include a Sinkhorn-Knopp based noise removal (de-striping) and a Laplacian of Gaussian filter (for blob detection) replacing a Gabor filter
+%% \item Sparse incremental Lanczos-based PCA that allows for input matrices to stay sparse, as opposed to the sklearn based IncrementalPCA
+%% \item Designed and implemented alone, with no collaborators and no advisor input
+%% \resumeItemListEnd
+
+%% \resumeProject
+%% {Linking regulatory elements to their target genes}
+%% {Tools: Python, R, XGBoost}
+%% {2019-2023}
+%% {{}[\href{https://github.com/kellislab/epimap}{\textcolor{darkblue}{\faGithub}}]}
+%% \resumeItemListStart
+%% \item Developed a method that links annotated enhancers to target genes by using correlated activity between epigenomes (imputed ChIP-seq) over putative enhancers and corresponding gene expression \textbf{[J.12]},\textbf{[J.9]},\textbf{[P.18]},\textbf{[J.2]}
+%% \item Started as rotation project in Manolis Kellis lab, directly supervised under Carles Boix (1st author of Nature paper), where my contributions placed me as a second author on a Nature paper \textbf{[J.12]}
+%% \item Worked with the ENCODE Distal Regulation group and GENCODE with this method to annotate regulatory elements \textbf{[J.8]},\textbf{[J.4]},\textbf{[P.19]}
+%% \item Later this methodology for linking putative enhancers to genes was extended for single-nucleus ATAC-seq studies for Alzheimer's disease \textbf{[J.11]},\textbf{[J.10]}
+%% \resumeItemListEnd
+
+\resumeProject
+{Intelligent clustering of DNA sequences}
+{Tools: C++/OpenMP; gdb/valgrind}
+{2016-2019}
+{{}[\href{https://github.com/BioinformaticsToolsmith/MeShClust}{\textcolor{darkblue}{\faGithub}}]}
+\resumeItemListStart
+\item Developed a fast, concurrent method as an undergraduate student to approximate an expensive method for DNA similarity (alignment) and used for clustering. Led to \textbf{5} journal publications as an undergrad.
+\item \tiny{\textbf{James, B. T.}, Luczak, B. B., \& Girgis, H. Z. (2018). MeShClust: an intelligent tool for clustering DNA sequences. \textit{Nucleic Acids Research}, \textit{46}(14), e83. \url{https://doi.org/10.1093/nar/gky315}}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{\textbf{Skills}}
+\vspace{-0.4mm}
+\resumeHeadingSkillStart
+\resumeSubItem{Programming Languages:}
+{R and Python (Daily use), C++ (+pybind11/Rcpp), Golang, Bash/POSIX sh, C, AWK \& Perl, Julia, Common Lisp}
+\resumeSubItem{Research-specific Packages and Tools:}
+{Bioconductor, scverse, samtools/bedtools, Eigen, NumPy/SciPy/SK-Learn, Snakemake \& Nextflow, brms}
+\resumeSubItem{DevOps/MLOps:}
+{De-facto manager of two lab-wide compute clusters, managing software (Lmod, conda, Docker, singularity environments, CUDA/NV admin, Terraform, Ansible, etc). Experienced Linux user (Debian/Gentoo user since 2014), see \href{https://github.com/benjamin-james/dotfiles}{my dotfiles}, formerly an ArchLinux \href{https://aur.archlinux.org/packages?SeB=m&K=benjamin-james}{maintainer}}
+\resumeSubItem{Side projects:}
+{Wrote an \textbf{agentic} harness tool to specify disposable agent virtual machines \href{https://github.com/benjamin-james/agentctl}{\faGithub} and deploy them \href{https://github.com/benjamin-james/dotfiles/blob/master/bin/vm}{\faGithub},
+	Contributed the dot-product distance into the \href{https://github.com/eddelbuettel/rcppannoy}{RcppAnnoy} package required by R genomics libraries \href{https://github.com/eddelbuettel/rcppannoy/pull/78}{\faGithub},
+	Wrote the sparse-matrix math for the \href{https://github.com/pinellolab/pychromVAR}{pychromVAR} package for transcription factor enrichment in snATAC-seq \href{https://github.com/pinellolab/pychromVAR/pull/13}{\faGithub},
+	wrote a complete BF compiler \href{https://github.com/benjamin-james/brainfuck}{\faGithub} and a Pascal compiler frontend \href{https://github.com/benjamin-james/pascal-compiler}{\faGithub} both in C, wrote and deployed a multi-user webapp on a VPS \href{https://github.com/benjamin-james/cfb_survivor_pool}{\faGithub} (Apache/Flask/PostgresQL)}
+\resumeHeadingSkillEnd
+
+\section{\textbf{Honors and Awards}}
+\vspace{-0.4mm}
+\resumeSubHeadingListStart
+
+\resumeProject
+{NSF GRFP}
+{National Science Foundation}
+{May 2019}
+{{}}%[\href{https://award-link-a.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+
+\resumeProject
+{Cronin Fellowship}
+{MIT EECS department}
+{April 2019}
+{{}}
+%% \resumeItemListStart
+%% \item MIT departmental (EECS) fellowship for exceptional Ph.D applicants
+%% \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\vspace{-6mm}
+%% \section{\textbf{Leadership Experience}}
+%% \vspace{-0.4mm}
+%% \resumeSubHeadingListStart
+%% \resumeProject
+%%   {Leadership Role A}
+%%   {Organization/Institution Name}
+%%   {Month Year - Month Year}
+%%   {{}[\href{https://organization-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+%% \resumeItemListStart
+%%   \item Key responsibility or achievement in this role
+%%   \item Quantifiable impact or improvement made during tenure
+%%   \item Initiative taken or project led
+%% \resumeItemListEnd
+
+%% \resumeProject
+%%   {Leadership Role B}
+%%   {Organization/Institution Name}
+%%   {Month Year - Month Year}
+%%   {{}[\href{https://organization-b-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+%% \resumeItemListStart
+%%   \item Key responsibility or achievement in this role
+%%   \item Quantifiable impact or improvement made during tenure
+%%   \item Initiative taken or project led
+%% \resumeItemListEnd
+
+%% \resumeSubHeadingListEnd
+
+%% \vspace{-6mm}
+
+%% \section{\textbf{Volunteer Experience}}
+%% \vspace{-0.4mm}
+%% \resumeSubHeadingListStart
+%% \resumeProject
+%%   {Volunteer Role A}
+%%   {Organization Name}
+%%   {Month Year - Month Year}
+%%   {{}[\href{https://volunteer-org-a-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+%% \resumeItemListStart
+%%   \item Key responsibility or contribution in this role
+%%   \item Impact of your volunteer work
+%%   \item Skills developed or applied during this experience
+%% \resumeItemListEnd
+
+%% \resumeProject
+%%   {Volunteer Role B}
+%%   {Organization Name}
+%%   {Month Year - Present}
+%%   {{}[\href{https://volunteer-org-b-link.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
+%% \resumeItemListStart
+%%   \item Key responsibility or contribution in this role
+%%   \item Impact of your volunteer work
+%%   \item Skills developed or applied during this experience
+%% \resumeItemListEnd
+
+%% \resumeSubHeadingListEnd
+%% \vspace{-6mm}
+
+%% \section{\textbf{Professional Memberships}}
+%% \vspace{-0.4mm}
+%% \resumeSubHeadingListStart
+%% \resumePOR{Professional Organization A}
+%%     {, Membership ID: XXXXXXXX}
+%%     {Month Year - Present}
+%% \resumePOR{Professional Organization B}
+%%     {, \href{https://membership-certificate-link.com}{Membership ID: XXXXXXXX}}
+%%     {Month Year - Present}
+%% \resumePOR{Professional Organization C}
+%%     {, \href{https://membership-certificate-link.com}{Membership ID: XXXXXXXX}}
+%%     {Month Year - Present}
+
+%% \resumeSubHeadingListEnd
+%% \vspace{-6mm}
+
+%% \section{\textbf{Certifications}}
+%% \vspace{-0.2mm}
+%% \resumeSubHeadingListStart
+%% \resumePOR{}{\href{https://certification-link-a.com}{
+%% \textbf{Certification A}
+%% }}{Month Year}
+%% \resumePOR{}{
+%% \textbf{Certifying Body:} {{\href{https://certification-link-b.com}{Certification B}}}}{Month Year}
+%% \resumePOR{}{
+%% \textbf{Certifying Body:} {{\href{https://certification-link-c.com}{Certification C}}}}{Month Year}
+%% \resumePOR{}{\href{https://certification-link-d.com}{
+%% \textbf{Certification D}
+%% }}{Month Year}
+
+%% \resumeSubHeadingListEnd
+%% \vspace{-6mm}
+
+%% \section{\textbf{Additional Information}}
+%% \vspace{-0.4mm}
+%% \small{
+%% \textbf{Languages:} Language A (Proficiency level), Language B (Proficiency level), Language C (Proficiency level)
+
+%% \textbf{Interests:} Interest 1, Interest 2, Interest 3, Interest 4
+%% }
+%% \vspace{-4mm}
+
+
+%% \section{\textbf{References}}
+%% \vspace{-0.2mm}
+%% \small{
+%% \begin{enumerate}[leftmargin=*,labelsep=2mm]
+%% \item \textbf{Reference Person 1}\\
+%%    Job Title, Department\\
+%%    Organization/Institution Name\\
+%%    Email: email1@example.com\\
+%%    Phone: +X-XXX-XXX-XXXX\\
+%%    \textit{Relationship: [e.g., Thesis Advisor, Manager, etc.]}
+
+%% \item \textbf{Reference Person 2}\\
+%%    Job Title, Department\\
+%%    Organization/Institution Name\\
+%%    Email: email2@example.com\\
+%%    Phone: +X-XXX-XXX-XXXX\\
+%%    \textit{Relationship: [e.g., Project Supervisor, Colleague, etc.]}
+
+%% \item \textbf{Reference Person 3}\\
+%%    Job Title, Department\\
+%%    Organization/Institution Name\\
+%%    Email: email3@example.com\\
+%%    Phone: +X-XXX-XXX-XXXX\\
+%%    \textit{Relationship: [e.g., Mentor, Collaborator, etc.]}
+%% \end{enumerate}
+%% }
+
+\end{document}
