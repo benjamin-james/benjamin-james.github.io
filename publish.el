@@ -58,6 +58,7 @@
       org-latex-create-formula-image-program 'dvisvgm
       ;;
       org-export-with-toc nil
+      org-export-with-title nil
       org-export-with-date t
       org-export-allow-bind-keywords t
       org-export-with-author t
@@ -87,6 +88,7 @@
 	       "https://people.csail.mit.edu/benjames"
 	       "https://personal.broadinstitute.org/bjames/"
 	       "https://github.com/benjamin-james"
+               "https://benjamin-james.github.io"
 	       "https://scholar.google.com/citations?user=t0y3zRkAAAAJ"
 	       "https://orcid.org/0000-0002-6228-055X"])))
 
@@ -120,7 +122,7 @@ Falls back to the page title when no paragraph text is found."
                      (text (replace-regexp-in-string "&lt;" "<" text))
                      (text (replace-regexp-in-string "&gt;" ">" text))
                      (text (org-trim
-                             (replace-regexp-in-string "\\s-+" " " text))))
+                            (replace-regexp-in-string "\\s-+" " " text))))
                 (when (org-string-nw-p text)
                   (setq found
                         (if (> (length text) 155)
@@ -150,7 +152,7 @@ Falls back to the page title when no paragraph text is found."
       (with-temp-buffer
         (insert-file-contents path)
         (org-export-string-as (buffer-string) 'html t
-                              '(:with-toc nil :section-numbers nil :validate nil)))
+                              '(:with-toc nil :section-numbers nil :validate nil :with-title nil)))
     ""))
 
 (defvar my/html-preamble  (my/org-file->html-fragment "assets/navbar.org"))
@@ -226,7 +228,7 @@ Falls back to the page title when no paragraph text is found."
              (let* ((name (file-name-nondirectory f))
                     (loc (concat base "/" name))
                     (mtime (format-time-string "%Y-%m-%d"
-                             (nth 5 (file-attributes f)))))
+                                               (nth 5 (file-attributes f)))))
                (format "  <url>\n    <loc>%s</loc>\n    <lastmod>%s</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>"
                        loc mtime)))
            pages "\n")))

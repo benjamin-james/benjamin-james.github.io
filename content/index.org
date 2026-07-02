@@ -32,10 +32,10 @@ and where I graduated with Bachelor of Science degrees in Computer Science and M
 I am an NSF Graduate Research Fellow and a Frederick (1953) and Barbara Cronin Fellow. 
 
 ** Quick Links
-- [[https://www.mit.edu/~benjames][MIT page]]
+- [[https://www.mit.edu/~benjames][MIT page]] / [[https://benjamin-james.github.io][GitHub Pages mirror]]
 - [[https://people.csail.mit.edu/benjames/][MIT CSAIL page]]
 - [[https://personal.broadinstitute.org/bjames/][Broad institute page]]
-- [[https://github.com/benjamin-james][GitHub]]               
+- [[https://github.com/benjamin-james][GitHub]]
 - [[https://scholar.google.com/citations?user=t0y3zRkAAAAJ&hl=en][Google Scholar]]
 - [[https://orcid.org/0000-0002-6228-055X][ORCID]]
 

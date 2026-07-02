@@ -22,8 +22,12 @@ GitHub Pages:
     emacs -Q --batch --load publish.el --funcall my/publish
 #+END_SRC
 ** todo
+add to CV/resume/footer:
+- Cell pub
+- GPG fingerprint
+
 add keywords in bibtex for:
 - co-first authorship
 - corrections/errata: ELisp regex?
 
-  
+
