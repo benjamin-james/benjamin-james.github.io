@@ -10,7 +10,7 @@
 
 
 
-\documentclass[a4paper,11pt]{article}
+\documentclass[letter,10pt]{article}
 
 % Package imports
 \usepackage{latexsym}
@@ -177,13 +177,15 @@
 
 \vspace{-4mm}
 
-%% \section{\textbf{Overview}}
-%% \vspace{1mm}
-%% \small{
-%%   Ph.D student seeking a challenging position to leverage my expertise in computational genomics.
-%%   Aiming to contribute to innovative projects at the intersection of AI and practical problem-solving in fields such as [specific areas of interest].
-%% }
-%% \vspace{-2mm}
+\section{\textbf{Overview}}
+\vspace{1mm}
+\small{
+	Computational biologist and engineer (MIT EECS Ph.D., 2026) - two co-first-author Cell papers, contributor to Terminal-Bench Science.
+	Building scalable numerical infrastructure and agent-evaluation tooling that lets computational biology meet AI at the scale real datasets demand in service of concrete biological discoveries.
+	%% Ph.D student seeking a challenging position to leverage my expertise in computational genomics.
+	%% Aiming to contribute to innovative projects at the intersection of AI and practical problem-solving in fields such as [specific areas of interest].
+}
+\vspace{-1mm}
 
 
 
@@ -243,7 +245,7 @@
 %% \resumeItemListEnd
 
 \resumeSubHeadingListEnd
-\vspace{-6mm}
+\vspace{-4.5mm}
 
 \section{\textbf{Selected Research} \small{Includes two (co-) first author \textbf{Cell} papers, one second-author \textbf{Nature} paper}}
 \vspace{-0.4mm}
@@ -252,15 +254,17 @@
 \resumeProject
 {Single-cell dissection of the human brain}
 {Tools: R, Python, Bash, C++}
-{2021 - 2026}
+{2019 - 2026}
 {{}[\href{https://github.com/kellislab/}{\textcolor{darkblue}{\faGithub}}]}
 \resumeItemListStart
 \item Integrated high-dimensional, multimodal (scRNA-seq/scATAC-seq) data from \textbf{hundreds of postmortem human brains} and mouse brains from corresponding model systems
 \item Analyzed these data across several \textbf{human disease contexts} and brain regions using \textbf{functional genomics}, careful integration/atlasing, and case-control causal inference to infer disease pathology.  %\textcolor{red}{TODO highlight keywords}
+\item  Led computational analysis on a cross-species striatum atlas (670K nuclei, 69 human donors) defining rare subpopulations including molecular subtypes of the century-old islands of Calleja, a notable species-conserved dorsolateral–ventromedial gradient, and human-enriched druggable targets invisible to rodent models, notably CHRM5 (a Cobenfy/xanomeline receptor) and GLP-1R/GIPR sites with CNS mechanistic implications for obesity and addiction therapeutics.
+%% Led computational analysis on a cross-species striatum atlas (~670K nuclei, 69 donors) that molecularly resolved the century-old striatal islands (Islands of Calleja, 1882) into defined subtypes, mapped a dorsolateral-ventromedial transcriptional gradient across the region, and surfaced species-divergent druggable targets invisible to rodent models including human-enriched CHRM5 (relevant to FDA-approved Cobenfy/xanomeline) and striatal GLP-1R expression with implications for CNS mechanisms of GLP-1 agonists.
 \item Created new methods to make inferences on new technologies (e.g. spatial transcriptomics) and gene module discovery, mostly using random matrix theory and high-dimensional statistics
 \item Connected millions of DNA elements active across human tissues to their target genes
 
-\item \tiny{Linville*, R. M., \textbf{James*, B. T.}, Galani, K., Ho, L., Shin, J., Oliver, E., Bock, R., Murray, E. M., Louca, M., Oke, O., Wang, C., Engelberg-Cook, E., DeTure, M., Farrell, V., Fitzwalter, B., Pineda, S., Sathitloetsakun, S., Liang, X., Madras, B., and Dickson, D. W., Mash, D. C., Turecki, G., Wheeler, V. C., Alvarez, V. A., Gabuzda, D., Kellis, M., Heiman, M. (2025). Cross-species single cell atlas of the striatum defines cell type and subregion disease vulnerabilities. \textbf{Cell}}.
+\item \tiny{Linville*, R. M., \textbf{James*, B. T.}, Galani, K., Ho, L., Shin, J., Oliver, E., Bock, R., Murray, E. M., Louca, M., Oke, O., Wang, C., Engelberg-Cook, E., DeTure, M., Farrell, V., Fitzwalter, B., Pineda, S., Sathitloetsakun, S., Liang, X., Madras, B., Dickson, D. W., Mash, D. C., Turecki, G., Wheeler, V. C., Alvarez, V. A., Gabuzda, D., Kellis, M., Heiman, M. (2026). Cross-species single cell atlas of the striatum defines cell type and subregion disease vulnerabilities. \textbf{Cell}, in press}.
 \item \tiny{Xiong*, X., \textbf{James*, B. T.}, Boix*, C. A., Park, Y. P., Galani, K., Victor, M. B., Sun, N., Hou, L., Ho, L.-L., Mantero, J., Scannail, A. N., Dileep, V., Dong, W., Mathys, H., Bennett, D. A., Tsai, L.-H., \& Kellis, M. (2023). Epigenomic dissection of Alzheimer’s disease pinpoints causal variants and reveals epigenome erosion. \textit{Cell}, \textit{186}(20), 4422–4437.e21. \url{https://doi.org/10.1016/j.cell.2023.08.040}}
 \item \tiny{Boix, C. A., \textbf{James, B. T.}, Park, Y. P., Meuleman, W., \& Kellis, M. (2021). Regulatory genomic circuitry of human disease loci by integrative epigenomics. \textit{Nature}, \textit{590}(7845), 300–307. \url{https://doi.org/10.1038/s41586-020-03145-z}}
 \resumeItemListEnd
@@ -302,6 +306,8 @@
 
 \resumeSubHeadingListEnd
 
+
+\vspace{-4mm}
 \section{\textbf{Skills}}
 \vspace{-0.4mm}
 \resumeHeadingSkillStart
@@ -312,33 +318,37 @@
 \resumeSubItem{DevOps/MLOps:}
 {De-facto manager of two lab-wide compute clusters, managing software (Lmod, conda, Docker, singularity environments, CUDA/NV admin, Terraform, Ansible, etc). Experienced Linux user (Debian/Gentoo user since 2014), see \href{https://github.com/benjamin-james/dotfiles}{my dotfiles}, formerly an ArchLinux \href{https://aur.archlinux.org/packages?SeB=m&K=benjamin-james}{maintainer}}
 \resumeSubItem{Side projects:}
-{Wrote an \textbf{agentic} harness tool to specify disposable agent virtual machines \href{https://github.com/benjamin-james/agentctl}{\faGithub} and deploy them \href{https://github.com/benjamin-james/dotfiles/blob/master/bin/vm}{\faGithub},
+{Contributor (under review) to \textbf{terminal-bench-science} \href{https://github.com/benjamin-james/terminal-bench-science/}{\faGithub},\href{https://github.com/harbor-framework/terminal-bench-science/discussions/301}{\faGithub} - benchmark for AI agents on scientific workflows; parent benchmark is featured on frontier model cards,
+	Wrote an \textbf{agentic} harness tool to specify disposable agent virtual machines \href{https://github.com/benjamin-james/agentctl}{\faGithub} and deploy them \href{https://github.com/benjamin-james/dotfiles/blob/master/bin/vm}{\faGithub},
 	Contributed the dot-product distance into the \href{https://github.com/eddelbuettel/rcppannoy}{RcppAnnoy} package required by R genomics libraries \href{https://github.com/eddelbuettel/rcppannoy/pull/78}{\faGithub},
 	Wrote the sparse-matrix math for the \href{https://github.com/pinellolab/pychromVAR}{pychromVAR} package for transcription factor enrichment in snATAC-seq \href{https://github.com/pinellolab/pychromVAR/pull/13}{\faGithub},
-	wrote a complete BF compiler \href{https://github.com/benjamin-james/brainfuck}{\faGithub} and a Pascal compiler frontend \href{https://github.com/benjamin-james/pascal-compiler}{\faGithub} both in C, wrote and deployed a multi-user webapp on a VPS \href{https://github.com/benjamin-james/cfb_survivor_pool}{\faGithub} (Apache/Flask/PostgresQL)}
+	wrote a complete BF compiler \href{https://github.com/benjamin-james/brainfuck}{\faGithub} and a Pascal compiler frontend \href{https://github.com/benjamin-james/pascal-compiler}{\faGithub} both in C, wrote and deployed a multi-user webapp on a VPS \href{https://github.com/benjamin-james/cfb_survivor_pool}{\faGithub} (Apache/Flask/PostgresQL)
+}
 \resumeHeadingSkillEnd
+
+%\vspace{-6mm}
 
 \section{\textbf{Honors and Awards}}
 \vspace{-0.4mm}
 \resumeSubHeadingListStart
 
 \resumeProject
-{NSF GRFP}
+{NSF GRFP }
 {National Science Foundation}
-{May 2019}
+%{}
+{Awarded May 2019}
 {{}}%[\href{https://award-link-a.com}{\textcolor{darkblue}{\faIcon{globe}}}]}
 
 \resumeProject
-{Cronin Fellowship}
+{Cronin Fellowship}% / MIT EECS department}
 {MIT EECS department}
-{April 2019}
+{Awarded April 2019}
 {{}}
 %% \resumeItemListStart
 %% \item MIT departmental (EECS) fellowship for exceptional Ph.D applicants
 %% \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\vspace{-6mm}
 %% \section{\textbf{Leadership Experience}}
 %% \vspace{-0.4mm}
 %% \resumeSubHeadingListStart
