@@ -66,3 +66,12 @@ I am an NSF Graduate Research Fellow and a Frederick (1953) and Barbara Cronin F
 [cite/n:@boix_regulatory_2021;@james_meshclust_2018;@xiong_epigenomic_2023]
 #+print_bibliography: 
 
+** News Links
+- [[https://news.mit.edu/2026/brains-striatum-atlas-could-guide-researchers-new-drug-treatments-0901][Atlas of the brain’s striatum could guide researchers to new drug treatments]]
+- [[https://news.mit.edu/2023/decoding-complexity-alzheimers-disease-0928][Decoding the complexity of Alzheimer's disease]]
+- [[https://news.mit.edu/2021/epigenomic-map-reveals-circuitry-human-disease-regions-0203][Epigenomic map reveals circuitry of 30,000 human disease regions]]
+- [[https://news.mit.edu/2025/researchers-invent-human-brain-model-to-enable-disease-research-drug-discovery-1105][MIT researchers invent new human brain model to enable disease research, drug discovery]]
+- [[https://www.eecs.mit.edu/alzheimers-erodes-brain-cells-control-of-gene-expression-undermining-function-cognition/][Alzheimer’s erodes brain cells’ control of gene expression, undermining function, cognition]]
+- [[https://news.mit.edu/2024/study-discerns-alzheimers-vulnerability-resilience-factors-0724][Study across multiple brain regions discerns Alzheimer’s vulnerability and resilience factors]]
+- [[https://news.mit.edu/2024/noninvasive-treatment-chemo-brain-0306][A noninvasive treatment for "chemo brain"]]
+- [[https://www.csail.mit.edu/news/unlocking-secrets-genetic-variants-new-insights-egtex-project][Unlocking the Secrets of Genetic Variants: New Insights from the eGTEx Project]]
