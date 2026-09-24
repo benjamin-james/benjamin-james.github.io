@@ -63,7 +63,7 @@ I am an NSF Graduate Research Fellow and a Frederick (1953) and Barbara Cronin F
 #+END_SRC
 #+bind: citeproc-name-postprocess-functions (cv-bold-self cv-add-dagger) 
 
-[cite/n:@boix_regulatory_2021;@james_meshclust_2018;@xiong_epigenomic_2023]
+[cite/n:@linville_cross-species_2026;@boix_regulatory_2021;@james_meshclust_2018;@xiong_epigenomic_2023]
 #+print_bibliography: 
 
 ** News Links
