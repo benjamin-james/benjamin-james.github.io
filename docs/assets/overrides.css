@@ -1,0 +1,4 @@
+.hero{display:flex;align-items:center;gap:.75rem;margin:0 0 1rem}
+.hero .avatar{width:72px;height:72px;border-radius:50%;object-fit:cover}
+.hero h1{margin:0}
+.hero .subtitle{margin:.15rem 0 0;opacity:.8;font-size:.95rem}
